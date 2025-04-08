@@ -15,7 +15,6 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
-@SuppressWarnings("DuplicatedCode")
 public class ProcessDictionary {
     private final Path dictionary = Paths.get("/usr/share/dict/words");
 
@@ -36,8 +35,7 @@ public class ProcessDictionary {
                             //.thenComparing(Comparator.reverseOrder()))
                     )
                     .limit(10)
-                    .forEach(w ->
-                            System.out.printf("%s (%d)%n", w, w.length()));
+                    .forEach(w -> System.out.printf("%s (%d)%n", w, w.length()));
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }

@@ -2,6 +2,9 @@ package interfaces;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 // Create a class called CompanyEmployee that implements both
 //   the Company and Employee interfaces
 // Implement the necessary methods
@@ -11,7 +14,10 @@ public class CompanyEmployeeTest {
 
     @Test
     public void getName() {
-//        CompanyEmployee emp = new CompanyEmployee("Peter", "Gibbons");
-//        assertEquals("Peter Gibbons works for Initech", emp.getName());
+        CompanyEmployee emp = new CompanyEmployee("Peter", "Gibbons");
+        assertAll(
+                () -> assertEquals("Peter Gibbons works for Initech", emp.getName()),
+                () -> assertEquals("Peter", emp.first()),
+                () -> assertEquals("Gibbons", emp.last()));
     }
 }
